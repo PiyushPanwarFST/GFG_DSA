@@ -1,15 +1,19 @@
 class Solution:   
     def peakElement(self, arr):
         n = len(arr)
-        # edges as potential peaks
-        if arr[0] > arr[1]:
-            return 0
-        if arr[n-1] > arr[n-2]:
-            return n - 1
-        for i in range(1, len(arr)-1):
-            if arr[i-1] < arr[i] and arr[i] > arr[i+1]:
-                return i
-        return 0
+        low = 0
+        high = n - 1
+
+        while low < high:
+            mid = (low + high) // 2
+
+            if arr[mid] < arr[mid+1]:
+                low = mid + 1
+            
+            else:
+                high = mid
+
+        return low
     
 if __name__ == "__main__":
     sol = Solution()
