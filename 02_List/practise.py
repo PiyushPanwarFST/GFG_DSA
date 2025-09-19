@@ -146,9 +146,9 @@
 # print(sum_of_digits(2))  # Output: 10 (1 + 2 + 3 + 4 = 10)
 
 
-def palindrome(str):
-    if len(str) == 1:
-        return True
-    return str == palindrome(str.pop())
+# def palindrome(str):
+#     if len(str) == 1:
+#         return True
+#     return str == palindrome(str.pop())
 
-print(palindrome("madam"))  # Output: True (since "madam" is a palindrome)
+# print(palindrome("madam"))  # Output: True (since "madam" is a palindrome)
