@@ -1,29 +1,35 @@
-a = [10,15,20,11,13]
-low = 0
-high = 4
-mid = 2
+def merge(a, low, mid, high):
+    left = a[low:mid + 1]
+    right = a[mid + 1:high + 1]
 
-def merge_subarray(a, low, mid, high):
-    i = low
-    j = mid + 1
-    c = []
+    i = j = 0
+    k = low
 
-    while i <= mid and j <= high:
-        if a[i] < a[j]:
-            c.append(a[i])
+    while i < len(left) and j < len(right):
+
+        if left[i] < right[j]:
+            a[k] = left[i]
+
+            k += 1
             i += 1
-        elif a[i] > a[j]:
-            c.append(a[j])
+        else:
+            a[k] = right[j]
+            k += 1
             j += 1
 
-    while i <= mid:
-        c.append(a[i])
+    while i < len(left):
+        a[k] = left[i]
         i += 1
+        k += 1
 
-    while j <= high:
-        c.append(a[j])
+    while j < len(right):
+        a[k] = right[j]
         j += 1
-    
-    return c
+        k += 1
 
-print(merge_subarray(a, low, mid, high))
+
+a = [10, 15, 20, 40, 8, 11, 55]
+
+merge(a, 0, 3, 6)
+
+print(*a)
