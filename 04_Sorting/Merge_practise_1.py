@@ -40,3 +40,4 @@ if __name__ == "__main__":
     arr1 = [2, 20, 20, 40]
     arr2 = [1, 10, 20]
     union_of_arrays(arr1, arr2)
+
